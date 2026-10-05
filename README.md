@@ -38,11 +38,24 @@ DATABASE_URL="postgresql://postgres:postgres@localhost:5432/contactos?schema=pub
 
 ## Solución de problemas
 
-Prisma Client no existe
+- Prisma Client no existe
 
 Ejecuta:
 
 npx prisma generate
+
+o
+
+npx prism push db
+
+
+- En caso de que la base de datos no inicie
+
+Revisa:
+
+Postgresql instalado
+
+Configuracion del usuario de la base de datos
 
 
 
