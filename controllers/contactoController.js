@@ -53,6 +53,20 @@ exports.crearContacto = async (req, res) => {
     }
 };
 
+// 4. Eliminar contacto
+exports.eliminarContacto = async (req, res) => {
+    try {
+        const id = parseInt(req.params.id, 10);
+        await prisma.contacto.delete({
+            where: { id }
+        });
+        res.redirect('/contactos');
+    } catch (err) {
+        console.error('Error al eliminar contacto:', err);
+        res.status(500).send('Error al eliminar el contacto');
+    }
+};
+
 // 4. Ver detalle de un contacto específico
 exports.verContacto = async (req, res) => {
     try {

@@ -14,6 +14,9 @@ router.post('/new', requireAuth, contactoController.crearContacto);
 router.get('/:id/editar', requireAuth, contactoController.formularioEditar);
 router.post('/:id/editar', requireAuth, contactoController.actualizarContacto);
 
+// Eliminar contacto (Protegido por Autenticación)
+router.post('/:id', requireAuth, contactoController.eliminarContacto);
+
 // Vista detallada/tarjeta individual de contacto (Protegida por Autenticación)
 router.get('/:id', requireAuth, contactoController.verContacto);
 

@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <form action="/contactos/<%= contacto.id %>/editar" method="POST">
+    <form id="editar-contacto" action="/contactos/<%= contacto.id %>/editar" method="POST">
       <div class="form-group">
         <label for="nombre">Nombre Completo *</label>
         <input type="text" id="nombre" name="nombre" class="form-input" value="<%= contacto.nombre %>" required />
@@ -45,11 +45,15 @@
         </select>
       </div>
 
-      <div class="btn-group">
-        <a href="/contactos/<%= contacto.id %>" class="btn btn-secondary">Cancelar</a>
-        <button type="submit" class="btn btn-primary">💾 Guardar Cambios</button>
-      </div>
     </form>
+
+    <div class="btn-group">
+      <a href="/contactos/<%= contacto.id %>" class="btn btn-secondary">Cancelar</a>
+      <button type="submit" form="editar-contacto" class="btn btn-primary">💾 Guardar Cambios</button>
+      <form action="/contactos/<%= contacto.id %>" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este contacto?');">
+        <button type="submit" class="btn btn-danger">🗑️ Eliminar Contacto</button>
+      </form>
+    </div>
   </div>
 </body>
 </html>

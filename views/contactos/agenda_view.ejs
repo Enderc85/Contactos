@@ -74,6 +74,11 @@
             <% } else { %>
                 <div class="empty-state">
                     <p>No hay contactos registrados en la agenda.</p>
+                    <% if (typeof usuario !=='undefined' && usuario) { %>
+                        <a href="/contactos/new" class="btn btn-primary" style="margin-top: 2.5rem;">+ Nuevo Contacto</a>
+                        <% } else { %>
+                            <a href="/auth/login" class="btn btn-primary" style="margin-top: 2.5rem;">Iniciar Sesión para Agregar Contactos</a>
+                            <% } %>
                 </div>
                 <% } %>
     </div>
