@@ -20,4 +20,6 @@ router.post('/:id', requireAuth, contactoController.eliminarContacto);
 // Vista detallada/tarjeta individual de contacto (Protegida por Autenticación)
 router.get('/:id', requireAuth, contactoController.verContacto);
 
+//Consulta del nombre del pais
+router.get('/pais/:id', contactoController.obtenerNombrePais);
 module.exports = router;

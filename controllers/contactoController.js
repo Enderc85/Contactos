@@ -5,7 +5,11 @@ const prisma = new PrismaClient();
 exports.listarContactos = async (req, res) => {
     try {
         const contactos = await prisma.contacto.findMany({
-            include: { provincia: true },
+            include: {
+                provincia: {
+                    include: { pais: true }
+                }
+            },
             orderBy: { nombre: 'asc' }
         });
         res.render('contactos/agenda_view', { 
@@ -140,5 +144,29 @@ exports.actualizarContacto = async (req, res) => {
     } catch (err) {
         console.error('Error al actualizar contacto:', err);
         res.status(500).send('Error al guardar los cambios del contacto');
+    }
+};
+
+
+exports.obtenerNombrePais = async (req, res) => {
+    try {
+        const provinciaId = parseInt(req.params.id, 10);
+        if (isNaN(provinciaId)) {
+            return res.status(400).json({ error: 'ID de provincia no válido' });
+        }else{
+            const provincia = await prisma.provincia.findUnique({
+                where: { id: provinciaId },
+                include: { pais: true }
+            });
+        if (!provincia) {
+            return res.status(404).json({ error: 'Provincia no encontrada' });
+        }else{
+            const nombrePais = provincia.pais.nombre;
+            res.json({ nombrePais });
+        }
+        }
+    } catch (err) {
+        console.error('Error al obtener el nombre del país:', err);
+        res.status(500).json({ error: 'Error al obtener el nombre del país' });
     }
 };
