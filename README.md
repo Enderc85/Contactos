@@ -1,9 +1,9 @@
-# Como iniciar el proyecyo -
+# Cómo iniciar el proyecyo -
 
 ## Pasos a seguir EN ORDEN
 
 - Instalar node.js
-- Dentro del IDE: run command "npm install dotenv"
+- Dentro del IDE: run command "npm install" - (Instala directamente las dependencias definidas en package.json)
 - Generar el .env y configurarlo con esta plantilla:
 
   ### Plantilla del archivo .env
@@ -27,7 +27,7 @@ DATABASE_URL="postgresql://postgres:postgres@localhost:5432/contactos?schema=pub
 -Añadir el ORM prism.
 
 
-## Teconologias en uso para este proyecto
+## Teconologías en uso para este proyecto
 
     Node.js
     Express
