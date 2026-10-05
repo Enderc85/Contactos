@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Provincia {
+  id        Int        @id @default(autoincrement())
+  nombre    String
+  pais      Pais       @relation(fields: [paisId], references: [id])
+  paisId    Int        @map("pais_id")
+  contactos Contacto[]
+
+  @@map("provincias")
+}
+
+model Pais {
+  id         Int         @id @default(autoincrement())
+  nombre     String
+  provincias Provincia[]
+  Contacto   Contacto[]
+
+  @@map("pais")
+}
+
+model Contacto {
+  id          Int        @id @default(autoincrement())
+  nombre      String
+  telefono    String?
+  email       String?
+  provinciaId Int?       @map("provincia_id")
+  provincia   Provincia? @relation(fields: [provinciaId], references: [id])
+  createdAt   DateTime   @default(now()) @map("created_at")
+  paisId      Int?       @map("pais_id")
+  pais        Pais?      @relation(fields: [paisId], references: [id])
+
+  @@map("contactos")
+}
+
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  nombre    String
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("usuarios")
+}

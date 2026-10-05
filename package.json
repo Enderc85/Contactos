@@ -1,0 +1,24 @@
+{
+  "name": "agenda-contactos",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^18.0.5",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.19.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0"
+  }
+}

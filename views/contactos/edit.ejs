@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>Editar Contacto</h1>
+        <p class="subhead">Modifica la información de <%= contacto.nombre %></p>
+      </div>
+    </div>
+
+    <form action="/contactos/<%= contacto.id %>/editar" method="POST">
+      <div class="form-group">
+        <label for="nombre">Nombre Completo *</label>
+        <input type="text" id="nombre" name="nombre" class="form-input" value="<%= contacto.nombre %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="text" id="telefono" name="telefono" class="form-input" value="<%= contacto.telefono || '' %>" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" name="email" class="form-input" value="<%= contacto.email || '' %>" />
+      </div>
+
+      <div class="form-group">
+        <label for="provinciaId">Provincia</label>
+        <select id="provinciaId" name="provinciaId" class="form-select">
+          <option value="">-- Seleccionar Provincia --</option>
+          <% if (typeof provincias !== 'undefined' && provincias.length > 0) { %>
+            <% provincias.forEach(prov => { %>
+              <option value="<%= prov.id %>" <%= (contacto.provinciaId === prov.id) ? 'selected' : '' %>>
+                <%= prov.nombre %>
+              </option>
+            <% }); %>
+          <% } %>
+        </select>
+      </div>
+
+      <div class="btn-group">
+        <a href="/contactos/<%= contacto.id %>" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary">💾 Guardar Cambios</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

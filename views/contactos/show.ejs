@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <%= contacto.nombre ? contacto.nombre.charAt(0).toUpperCase() : 'C' %>
+      </div>
+      <h1 class="profile-name"><%= contacto.nombre %></h1>
+      <% if (contacto.provincia) { %>
+        <span class="badge-provincia"><%= contacto.provincia.nombre %></span>
+      <% } else { %>
+        <span class="badge-provincia">Sin provincia</span>
+      <% } %>
+
+      <div class="detail-list">
+        <div class="detail-item">
+          <span class="detail-label">ID Contacto</span>
+          <span class="detail-value">#<%= contacto.id %></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Nombre</span>
+          <span class="detail-value"><%= contacto.nombre %></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Teléfono</span>
+          <span class="detail-value"><%= contacto.telefono || 'No especificado' %></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Correo electrónico</span>
+          <span class="detail-value"><%= contacto.email || 'No especificado' %></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Provincia</span>
+          <span class="detail-value"><%= contacto.provincia ? contacto.provincia.nombre : 'No asignada' %></span>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <a href="/contactos" class="btn btn-secondary">← Volver a la Agenda</a>
+        <a href="/contactos/<%= contacto.id %>/editar" class="btn btn-primary">✏️ Editar Contacto</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
