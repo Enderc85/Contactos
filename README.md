@@ -7,14 +7,13 @@
 - Generar el .env y configurarlo con esta plantilla:
 
   ### Plantilla del archivo .env
-
+```env
 PORT=3000
 DB_HOST=localhost
 DB_USER=postgres
 DB_PASSWORD=
 DB_NAME=contactos
 DB_PORT=5432
-
 
 # This was inserted by `prisma init`:
 # Environment variables declared in this file are automatically made available to Prisma.
@@ -24,5 +23,5 @@ DB_PORT=5432
 # See the documentation for all the connection string options: https://pris.ly/d/connection-strings
 
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/contactos?schema=public"
-
+```
 -Añadir el ORM prism.
