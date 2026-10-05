@@ -9,6 +9,11 @@ var session = require('express-session');
 var authRouter = require('./routes/auth');
 var contactosRouter = require('./routes/contactos');
 
+var indexRouter = require('./routes/index');
+var authRouter = require('./routes/auth');
+var contactosRouter = require('./routes/contactos');
+
+
 var app = express();
 
 // view engine setup
