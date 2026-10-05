@@ -24,7 +24,7 @@ DB_PORT=5432
 
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/contactos?schema=public"
 ```
--Añadir el ORM prism.
+- Añadir el ORM prism.
 
 
 ## Teconologías en uso para este proyecto
