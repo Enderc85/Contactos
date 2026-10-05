@@ -25,3 +25,35 @@ DB_PORT=5432
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/contactos?schema=public"
 ```
 -Añadir el ORM prism.
+
+
+## Teconologias en uso para este proyecto
+
+    Node.js
+    Express
+    PostgreSQL
+    Prisma ORM
+    dotenv
+
+
+## Solución de problemas
+
+Prisma Client no existe
+
+Ejecuta:
+
+npx prisma generate
+
+
+
+# Buenas prácticas
+
+    No subir el archivo .env al repositorio.
+    Añadir .env al .gitignore.
+    Utilizar migraciones para cualquier cambio en la base de datos.
+    Mantener separadas las rutas, controladores y servicios.
+    Centralizar la configuración en variables de entorno.
+
+# Autor
+
+Proyecto hecho por **Xavirocab**
